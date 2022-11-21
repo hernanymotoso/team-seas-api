@@ -5,6 +5,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DonationsModule } from './donations/donations.module';
+import { GraphQLDateTime } from 'graphql-iso-date';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { DonationsModule } from './donations/donations.module';
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       typePaths: ['./**/*.graphql'],
+      resolvers: { DateTime: GraphQLDateTime },
     }),
     DonationsModule,
   ],
