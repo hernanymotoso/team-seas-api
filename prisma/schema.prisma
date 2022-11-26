@@ -11,12 +11,12 @@ datasource db {
 }
 
 model Donation {
-  id Int @id @default(autoincrement())
-  count Int
-  createdAt DateTime @default(now())
+  id          Int      @id @default(autoincrement())
+  count       Int
+  createdAt   DateTime @default(now())
   displayName String 
-  email String 
-  mobile String?
-  message String? 
-  team String? 
-}
+  email       String 
+  mobile      String?
+  message     String? 
+  team        String? 
+} 
