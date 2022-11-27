@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'prisma/prisma.service';
-import { CreateDonationInput } from './dto/create-donation.input';
 
 @Injectable()
 export class DonationsService {
   constructor(private prisma: PrismaService) {}
 
-  create(createDonationInput: CreateDonationInput) {
-    return 'This action adds a new donation';
+  create(createDonationInput: Prisma.DonationCreateInput) {
+    return this.prisma.donation.create({
+      data: createDonationInput,
+    });
   }
 
   findAll() {
