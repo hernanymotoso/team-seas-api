@@ -20,6 +20,6 @@ export class DonationsResolver {
 
   @Query('donation')
   findOne(@Args('id') id: number) {
-    return this.donationsService.findOne(id);
+    return this.donationsService.findOne({ id });
   }
 }
