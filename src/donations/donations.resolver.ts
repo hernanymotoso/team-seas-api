@@ -1,5 +1,6 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
+import { OrderByParams } from '../graphql';
 import { DonationsService } from './donations.service';
 
 @Resolver('Donation')
@@ -15,8 +16,8 @@ export class DonationsResolver {
   }
 
   @Query('donations')
-  findAll() {
-    return this.donationsService.findAll();
+  findAll(@Args('orderBy') orderBy?: OrderByParams) {
+    return this.donationsService.findAll(orderBy);
   }
 
   @Query('donation')
